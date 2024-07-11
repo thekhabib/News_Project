@@ -1,0 +1,22 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}
+Mahalliy Yangiliklar
+{% endblock %}
+
+{% block content %}
+    <div style="max-width: 1200px; margin: 0 auto; padding: 20px">
+        {% for news in local_news %}
+          <a href="{{ news.get_absolute_url }}">
+            <div style="display: flex; align-items: center;; margin-bottom: 1px; border: 1px solid #ddd; padding: 10px; padding: 10px; overflow: hidden">
+                <img style="width: 25%; height: auto; margin-right: 20px; border-radius: 1px" src="{{ news.image.url }}" alt="">
+                <div style="flex: 1; margin: 0">
+                    <h3>{{ news.title }}</h3>
+                    <span><i class="fa fa-calendar"></i>{{ news.published_time }}</span>
+                </div>
+            </div>
+          </a>  
+        {% endfor %}
+    </div>
+{% endblock content %}
