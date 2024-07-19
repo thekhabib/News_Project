@@ -1,5 +1,6 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load hitcount_tags %}
 
 {% block title %} Biz bilan aloqa {% endblock title %}
 {% block content %}
@@ -15,7 +16,7 @@
               <input class="form-control" type="text" placeholder="FIO*" name="name">
               <input class="form-control" type="email" placeholder="Email*" name="email">
               <textarea class="form-control" cols="30" rows="10" placeholder="Xabar*" name="message"></textarea>
-              <input type="submit" value="Xabarni jo'natish">
+              <input style="border-radius: 5px" type="submit" value="Xabarni jo'natish">
             </form>
           </div>
         </div>
@@ -23,28 +24,18 @@
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>Popular Post</span></h2>
+            <h2><span>Ommabop</span></h2>
             <ul class="spost_nav">
+              {% for news in latest_news %}  
               <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg' %}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                <div class="media wow fadeInDown"> <a href="{{ news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
+                  <div class="media-body">
+                      <a href="{{ news.get_absolute_url }}" class="catg_title">{{ news.title }}</a>
+                      <p> <i class="fa fa-calendar"></i> {{ news.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for news %} </p>
+                  </div>
                 </div>
               </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg' %}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg' %}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg' %}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
+              {% endfor %}  
             </ul>
           </div>
         </aside>

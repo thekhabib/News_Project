@@ -1,17 +1,63 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
-from django.views.generic import TemplateView, ListView
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.models import User
+from django.db.models import Q
+from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
+from django.urls import reverse_lazy
+from django.utils.text import slugify
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
+from hitcount.views import HitCountDetailView
 
-from .forms import ContactForm
+from config.custom_permissions import OnlyLoggedSuperUser
+from .forms import ContactForm, CommentForm
 from .models import News, Category
 
 
 # Create your views here.
-def newsdetail(request, news):
-    news = get_object_or_404(News, slug=news, status=News.Status.Published)
+def newsdetail(request, slug):
+    news = get_object_or_404(News, slug=slug, status=News.Status.Published)
+    comments = news.comments.filter(active=True)
+    comment_count = comments.count()
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.news = news
+            new_comment.user = request.user
+            new_comment.save()
+            return redirect('news_detail_page', slug=news.slug)
+    else:
+        comment_form = CommentForm()
     context = {
-        'news': news
+        'news': news,
+        'comments': comments,
+        'comment_count': comment_count,
+        'comment_form': comment_form,
     }
     return render(request, 'news/news_detail.html', context)
+
+
+class NewsDetailView(HitCountDetailView):
+    model = News
+    template_name = 'news/news_detail.html'
+    context_object_name = 'news'
+    form = CommentForm
+    count_hit = True
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = context['news'].comments.filter(active=True)
+        context['comment_count'] = context['comments'].count()
+        context['comment_form'] = CommentForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.news = News.objects.get(slug=kwargs['slug'])
+            new_comment.user = request.user
+            new_comment.save()
+            return redirect('news_detail_page', slug=self.kwargs['slug'])
 
 
 class HomePageView(ListView):
@@ -110,3 +156,47 @@ class SportNewsView(ListView):
     def get_queryset(self):
         news = News.published.filter(category__name='Sport').order_by('-published_time')
         return news
+
+
+class NewsUpdateView(OnlyLoggedSuperUser, UpdateView):
+    model = News
+    fields = ['title', 'body', 'image', 'category', 'status']
+    template_name = 'crud/news_edit.html'
+
+
+class NewsDeleteView(OnlyLoggedSuperUser, DeleteView):
+    model = News
+    template_name = 'crud/news_delete.html'
+    success_url = reverse_lazy('home_page')
+
+
+class NewsCreateView(OnlyLoggedSuperUser, CreateView):
+    model = News
+    fields = ['title', 'slug', 'body', 'image', 'category', 'status']
+    template_name = 'crud/news_create.html'
+
+    def form_valid(self, form):
+        form.instance.slug = slugify(form.instance.title)
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+@login_required
+@user_passes_test(lambda user: user.is_superuser)
+def admin_page_view(request):
+    admin_users = User.objects.filter(is_superuser=True)
+    context = {
+        'admin_users': admin_users,
+    }
+
+    return render(request, 'pages/admin_page.html', context)
+
+
+class SearchResultsListView(ListView):
+    model = News
+    template_name = 'news/search_result.html'
+    context_object_name = 'search_list'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return News.published.filter(Q(title__icontains=query) | Q(body__icontains=query))

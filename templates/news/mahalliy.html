@@ -1,22 +1,57 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load hitcount_tags %}
 
 {% block title %}
 Mahalliy Yangiliklar
 {% endblock %}
-
 {% block content %}
-    <div style="max-width: 1200px; margin: 0 auto; padding: 20px">
+    <style>
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .news-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow: hidden;
+        }
+        .news-item img {
+            width: 25%;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .news-item div {
+            flex: 1;
+            margin: 0;
+        }
+        .news-item h3 {
+            margin: 0 0 10px 0;
+        }
+        .news-item p {
+            font-size: 14px;
+            color: #555;
+        }
+        .news-item i {
+            margin-right: 5px;
+        }
+    </style>
+    <div class="news-container">
         {% for news in local_news %}
-          <a href="{{ news.get_absolute_url }}">
-            <div style="display: flex; align-items: center;; margin-bottom: 1px; border: 1px solid #ddd; padding: 10px; padding: 10px; overflow: hidden">
-                <img style="width: 25%; height: auto; margin-right: 20px; border-radius: 1px" src="{{ news.image.url }}" alt="">
-                <div style="flex: 1; margin: 0">
-                    <h3>{{ news.title }}</h3>
-                    <span><i class="fa fa-calendar"></i>{{ news.published_time }}</span>
+            <a href="{{ news.get_absolute_url }}">
+                <div class="news-item">
+                    <img src="{{ news.image.url }}" alt="">
+                    <div>
+                        <h3>{{ news.title }}</h3>
+                        <p> <i class="fa fa-calendar"></i> {{ news.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for news %} </p>
+                    </div>
                 </div>
-            </div>
-          </a>  
+            </a>  
         {% endfor %}
     </div>
 {% endblock content %}

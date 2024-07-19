@@ -1,0 +1,78 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Admin sahifasi {% endblock %}
+{% block content %}
+    <div class="admin-container">
+        <h2>Admin sahifasi</h2>
+        <h5>Barcha adminlar ro'yxati</h5>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Ismi</th>
+                    <th>Familiyasi</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in admin_users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td> <a class="text-primary" href="mailto:{{ user.email }}">{{ user.email }}</a> </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5">Hech qanday admin topilmadi.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+        .admin-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-container h2, .admin-container h5 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .admin-table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .admin-table th, .admin-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .admin-table th {
+            background-color: #f2f2f2;
+        }
+
+        .admin-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .admin-icon {
+            font-size: 50px;
+            color: #ddd;
+        }
+    </style>
+{% endblock content %}

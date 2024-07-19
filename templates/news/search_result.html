@@ -1,0 +1,102 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% load hitcount_tags    %}
+
+{% block title %} Qidiruv natijalari {% endblock %}
+
+{% block content %}
+    <div class="search-results-container">
+        <h1>Qidiruv natijalari</h1>
+        {% if search_list %}
+            <ul class="search-results-list">
+                {% for news in search_list %}
+                    <li class="search-result-item">
+                        <div class="search-result-link">
+                            <div class="search-result-image-container">
+                                <a href="{{ news.get_absolute_url }}">
+                                    <img src="{{ news.image.url }}" alt="" class="search-result-image">
+                                </a>
+                            </div>
+                            <div class="search-result-content">
+                                <a href="{{ news.get_absolute_url }}">
+                                    <div class="search-result-title">{{ news.title }}</div>
+                                </a>
+                                <div class="search-result-body">{{ news.body|truncatewords:40 }}</div>
+                                <p> <i class="fa fa-calendar"></i> {{ news.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for news %} </p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Hech qanday natija topilmadi.</p>
+        {% endif %}
+    </div>
+    <style>
+        .search-results-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-results-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .search-results-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .search-result-item {
+            margin-bottom: 15px;
+        }
+        
+        .search-result-link {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .search-result-image-container {
+            flex-shrink: 0;
+            width: 150px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        
+        .search-result-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .search-result-content {
+            flex: 1;
+        }
+        
+        .search-result-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .search-result-body {
+            font-size: 14px;
+            color: #626262;
+        }
+    </style>
+{% endblock content %}

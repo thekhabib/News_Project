@@ -1,0 +1,58 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Yangilik yaratish {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'pages/profile_sidebar.html' %}
+        </div>
+        <div class="col-md-9">
+            <h3>Yangilik yaratish</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Saqlash</button>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    .list-group-item {
+        font-size: 16px;
+        padding: 10px 15px;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
+    
+    .list-group-item.active {
+        background-color: #437dda;
+        color: #fff;
+        border-color: #ece5e5;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function slugify(text) {
+        return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+    }
+
+    $(document).ready(function() {
+        $('#id_title').on('input', function() {
+            const title = $(this).val();
+            const slug = slugify(title);
+            $('#id_slug').val(slug);
+        });
+    });
+</script>
+{% endblock content %}

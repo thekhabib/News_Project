@@ -1,5 +1,6 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load hitcount_tags %}
 
 {% block title %} Bosh sahifa {% endblock title %}
 {% block content %}
@@ -27,7 +28,10 @@
             {% for news in news_list %}
               <li>
                 <div class="media"> <a href="{{ news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
-                  <div class="media-body"> <a href="{{ news.get_absolute_url }}" class="catg_title"> {{ news.title }} </a> </div>
+                  <div class="media-body">
+                      <a href="{{ news.get_absolute_url }}" class="catg_title"> {{ news.title }} </a>
+                    <p> <i class="fa fa-calendar"></i> {{ news.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for news %} </p>
+                  </div>
                 </div>
               </li>
             {% endfor %}    
@@ -52,6 +56,7 @@
                   <figure class="bsbig_fig"> <a href="{{ mahalliy.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ mahalliy.image.url }}"> <span class="overlay"></span> </a>
                     <figcaption> <a href="{{ mahalliy.get_absolute_url }}">{{ mahalliy.title }}</a> </figcaption>
                     <p>{{ mahalliy.body | truncatewords:15 }}</p>
+                    <p> <i class="fa fa-calendar"></i> {{ mahalliy.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for mahalliy %} </p>
                   </figure>
                 </li>
                 {% endif %}  
@@ -64,7 +69,10 @@
                 {% if forloop.counter > 1 %}
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{ mahalliy.get_absolute_url }}" class="media-left"> <img alt="" src="{{ mahalliy.image.url }}"> </a>
-                    <div class="media-body"> <a href="{{ mahalliy.get_absolute_url }}" class="catg_title">{{ mahalliy.title }}</a> </div>
+                    <div class="media-body">
+                        <a href="{{ mahalliy.get_absolute_url }}" class="catg_title">{{ mahalliy.title }}</a>
+                        <p> <i class="fa fa-calendar"></i> {{ mahalliy.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for mahalliy %} </p>
+                    </div>
                   </div>
                 </li>
                 {% endif %}
@@ -83,6 +91,7 @@
                     <figure class="bsbig_fig"> <a href="{{ xorij.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ xorij.image.url }}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="{{ xorij.get_absolute_url }}">{{ xorij.title }}</a> </figcaption>
                       <p>{{ xorij.body | truncatewords:15 }}</p>
+                      <p> <i class="fa fa-calendar"></i> {{ xorij.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for xorij %} </p>
                     </figure>
                   </li>
                   {% endif %}
@@ -93,7 +102,10 @@
                   {% if forloop.counter > 1 %}
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{ xorij.get_absolute_url }}" class="media-left"> <img alt="" src="{{ xorij.image.url }}"> </a>
-                      <div class="media-body"> <a href="{{ xorij.get_absolute_url }}" class="catg_title">{{ xorij.title }}</a> </div>
+                      <div class="media-body">
+                          <a href="{{ xorij.get_absolute_url }}" class="catg_title">{{ xorij.title }}</a>
+                          <p> <i class="fa fa-calendar"></i> {{ xorij.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for xorij %} </p>
+                      </div>
                     </div>
                   </li>
                   {% endif %}
@@ -111,6 +123,7 @@
                     <figure class="bsbig_fig wow fadeInDown"> <a href="{{ texnologiya.get_absolute_url }}" class="featured_img"><img alt="" src="{{ texnologiya.image.url }}"><span class="overlay"></span></a>
                       <figcaption> <a href="{{ texnologiya.get_absolute_url }}">{{ texnologiya.title }}</a> </figcaption>
                       <p>{{ texnologiya.body | truncatewords:15 }}</p>
+                      <p> <i class="fa fa-calendar"></i> {{ texnologiya.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for texnologiya %} </p>
                     </figure>
                   </li>
                   {% endif %}
@@ -121,7 +134,10 @@
                   {% if forloop.counter > 1 %}
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{ texnologiya.get_absolute_url }}" class="media-left"> <img alt="" src="{{ texnologiya.image.url }}"> </a>
-                      <div class="media-body"> <a href="{{ texnologiya.get_absolute_url }}" class="catg_title">{{ texnologiya.title }}</a> </div>
+                      <div class="media-body">
+                          <a href="{{ texnologiya.get_absolute_url }}" class="catg_title">{{ texnologiya.title }}</a>
+                          <p> <i class="fa fa-calendar"></i> {{ texnologiya.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for texnologiya %} </p>
+                      </div>
                     </div>
                   </li>
                   {% endif %}
@@ -175,6 +191,7 @@
                   <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{ sport.get_absolute_url }}"> <img src="{{ sport.image.url }}" alt=""> <span class="overlay"></span> </a>
                     <figcaption> <a href="{{ sport.get_absolute_url }}">{{ sport.title }}</a> </figcaption>
                     <p>{{ sport.body | truncatewords:15 }}</p>
+                    <p> <i class="fa fa-calendar"></i> {{ sport.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for sport %} </p>
                   </figure>
                 </li>
                 {% endif %}
@@ -187,7 +204,10 @@
                 {% if forloop.counter > 1 %}
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{ sport.get_absolute_url }}" class="media-left"> <img alt="" src="{{ sport.image.url }}"> </a>
-                    <div class="media-body"> <a href="{{ sport.get_absolute_url }}" class="catg_title">{{ sport.title }}</a> </div>
+                    <div class="media-body">
+                        <a href="{{ sport.get_absolute_url }}" class="catg_title">{{ sport.title }}</a>
+                        <p> <i class="fa fa-calendar"></i> {{ sport.published_time|date:"Y-m-d H:i" }} | <i class="fa fa-eye"></i>{% get_hit_count for sport %} </p>
+                    </div>
                   </div>
                 </li>
                 {% endif %}
@@ -240,7 +260,7 @@
               </div>
               <div role="tabpanel" class="tab-pane" id="video">
                 <div class="vide_area">
-                  <iframe width="100%" height="250" src="https://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" allowfullscreen></iframe>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> <iframe width="100%" height="250" src="{% static 'images/-1001999712000-139.mp4' %}" allowfullscreen></iframe> </a>
                 </div>
               </div>
               <div role="tabpanel" class="tab-pane" id="comments">
@@ -248,21 +268,6 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg' %}"> </a>
                       <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg' %}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg' %}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg' %}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
                     </div>
                   </li>
                 </ul>

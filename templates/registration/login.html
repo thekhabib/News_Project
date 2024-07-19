@@ -1,0 +1,68 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Login sahifasi {% endblock %}
+{% block content %}
+    <div class="login-container">
+        <h3>Veb-saytga kirish - Login</h3>
+        <p>Iltimos, saytga kirish uchun quyidagi formani to'ldiring!</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p> <a href="{% url 'password_reset' %}" class="link">Parolingizni unutdingizmi?</a> </p>
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Saytga kirish</button>
+            </div>
+        </form>
+        <p>Yangi foydalanuvchimisiz? <a href="{% url 'user_register' %}" class="link">Ro'yxatdan o'ting</a></p>
+    </div>
+    <style>
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .login-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .login-container p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .login-container form {
+            margin-bottom: 20px;
+        }
+        
+         .login-container .btn {
+            width: 40%;
+            padding: 10px;
+             border-radius: 5px;
+        }
+    
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+    
+        .login-container .btn {
+            padding: 10px 20px;
+        }
+    
+        .login-container .link {
+            color: #0a8ec4;
+            text-decoration: none;
+        }
+    
+        .login-container .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock content %}

@@ -1,0 +1,128 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}{{ user.username }} profili{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          {% include 'pages/profile_sidebar.html' %}
+        </div>
+        <div class="panel-body inf-content col-md-9">
+            <div class="row">
+                <h2 style="margin-left: 300px">{{ user.username }}, xush kelibsiz</h2><br>
+                <div class="col-md-4">
+                    {% if profile.photo %}
+                        <img alt="" style="width:80%" class="circular--portrait img-thumbnail" src="{{ profile.photo.url }}">
+                    {% else %}
+                        <img alt="" style="width:80%" class="circular--portrait img-thumbnail" src="{{ "/media/users/default_img.png" }}">
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+{#                    <h5>Shaxsiy ma'lumotlar</h5>#}
+                    <div class="table-responsive">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td> <span class="glyphicon glyphicon-user  text-primary"></span> Ismi </td>
+                                    <td class="text-primary"> <strong>{{ user.first_name }}</strong> </td>
+                                </tr>
+                                <tr>
+                                    <td> <span class="glyphicon glyphicon-cloud  text-primary"></span> Familiyasi </td>
+                                    <td class="text-primary"> <strong>{{ user.last_name }}</strong> </td>
+                                </tr>
+                                <tr>
+                                    <td> <span class="glyphicon glyphicon-bookmark  text-primary"></span> Usename </td>
+                                    <td class="text-primary"> <strong>{{ user.username }}</strong> </td>
+                                </tr>
+                                <tr>
+                                    <td> <span class="glyphicon glyphicon-envelope  text-primary"></span> Elektron pochta </td>
+                                    <td class="text-primary"> <strong>{{ user.email }}</strong> </td>
+                                </tr>
+                                <tr>
+                                    <td> <span class="glyphicon glyphicon-calendar text-primary"></span> Ro'yxatdan o'tgan </td>
+                                    <td class="text-primary"> <strong>{{ user.date_joined | date:"d M Y"}}</strong> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <style>
+        .circular--portrait {
+            position: relative;
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-left: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .circular--portrait img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+
+        .profile-usermenu ul li {
+            border-bottom: 1px solid #f0f4f7;
+        }
+
+        .profile-usermenu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-usermenu ul li a {
+            color: #3872a4;
+            font-size: 16px;
+            font-weight: 400;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        .profile-usermenu ul li a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .profile-usermenu ul li a:hover {
+            background-color: #fafcfd;
+            color: #448dcc;
+        }
+
+        .profile-usermenu ul li.active a {
+            color: #244e72;
+            background-color: #9fd7fe;
+            border-radius: 5px;
+        }
+         .inf-content {
+             border: 1px solid #DDDDDD;
+             -webkit-border-radius: 10px;
+             -moz-border-radius: 10px;
+             border-radius: 5px;
+         }
+    </style>
+{% endblock content %}

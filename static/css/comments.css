@@ -1,0 +1,167 @@
+/* Comment section styling */
+.comment {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.comment strong {
+    font-size: 18px;
+    color: #333;
+}
+
+.comment p {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.comment-form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.comment-time {
+    float: right;
+    color: #888;  /* Optional: style the timestamp with a different color */
+}
+
+.comment-form h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.comment-form label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.comment-form input,
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.comment-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+#showCommentFormBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c757d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#showCommentFormBtn:hover {
+    background-color: #5a6169;
+}
+
+.search-results-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.search-results-list {
+    list-style: none;
+    padding: 0;
+}
+
+.search-result-item {
+    margin-bottom: 15px;
+}
+
+.search-result-link {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.search-result-image-container {
+    flex-shrink: 0;
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.search-result-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-result-content {
+    flex: 1;
+}
+
+.search-result-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.search-result-body {
+    font-size: 16px;
+    color: #666;
+}
+
+
+.navbar-nav .search-icon {
+    position: relative;
+}
+.search-form {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 1000;
+    width: 250px;
+}
+
+.search-form input {
+    width: 100%;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+}

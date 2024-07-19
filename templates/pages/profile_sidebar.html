@@ -1,0 +1,70 @@
+<style>
+    .profile-usermenu {
+      border: 1px solid #DDDDDD;
+      border-radius: 10px; /* Burchaklarni yumaloqlashtirish */
+    }
+    
+    .profile-usermenu ul li {
+      border-bottom: 1px solid #f0f4f7;
+    }
+    
+    .profile-usermenu ul li:last-child {
+      border-bottom: none;
+    }
+    
+    .profile-usermenu ul li a {
+      color: #3872a4;
+      font-size: 16px;
+      font-weight: 400;
+      display: block;
+      padding: 10px 15px; /* Padding qo'shish */
+      border-radius: 5px; /* Burchaklarni yumaloqlashtirish */
+    }
+    
+    .profile-usermenu ul li a i {
+      margin-right: 8px;
+      font-size: 14px;
+    }
+    
+    .profile-usermenu ul li a:hover {
+      background-color: #fafcfd;
+      color: #448dcc;
+    }
+    
+    .profile-usermenu ul li.active a {
+      color: #244e72;
+      background-color: #9fd7fe;
+      border-radius: 5px; /* Burchaklarni yumaloqlashtirish */
+    }
+</style>
+<div class="container-fluid profile-usermenu">
+    <ul class="nav">
+      <li class="{% if request.resolver_match.url_name == 'user_profile' %}active{% endif %}">
+        <a href="{% url 'user_profile' %}">
+          <i class="glyphicon glyphicon-user"></i>
+          {{ request.user.username }} </a>
+      </li>
+      <li class="{% if request.resolver_match.url_name == 'edit_user_information' %}active{% endif %}">
+        <a href="{% url 'edit_user_information' %}">
+          <i class="glyphicon glyphicon-edit"></i>
+          Shaxsiy ma'lumotlarni o'zgartirish </a>
+      </li>
+      {% if user.is_superuser %}  
+          <li class="{% if request.resolver_match.url_name == 'news_create' %}active{% endif %}">
+            <a href="{% url 'news_create' %}">
+              <i class="glyphicon glyphicon-plus"></i>
+              Yangilik yaratish </a>
+          </li>
+      {% endif %}
+      <li class="{% if request.resolver_match.url_name == 'password_change' %}active{% endif %}">
+        <a href="{% url 'password_change' %}">
+          <i class="glyphicon glyphicon-lock"></i>
+          Parolni o'zgartirish </a>
+      </li>
+      <li>
+          <a href="{% url 'logout' %}">
+              <i class="glyphicon glyphicon-log-out"></i>
+              Chiqish </a>
+      </li>      
+    </ul>
+</div>
