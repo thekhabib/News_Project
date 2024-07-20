@@ -1,11 +1,14 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %} Logout sahifasi {% endblock %}
+{% block title %}{% blocktrans %} Logout sahifasi {% endblocktrans %}{% endblock %}
 {% block content %}
     <div class="logout-page">
         <h3>Log Out</h3>
-        <p>Siz vebsaytdan chiqdingiz</p>
-        <button type="button" class="btn btn-primary"> <a href="{% url 'login' %}" style="color: white; text-decoration: none;">Saytga kirish</a> </button>
+        <p>{% blocktrans %} Siz vebsaytdan chiqdingiz {% endblocktrans %}</p>
+        <button type="button" class="btn btn-primary">
+            <a href="{% url 'login' %}" style="color: white; text-decoration: none;">{% blocktrans %} Saytga kirish {% endblocktrans %}</a>
+        </button>
     </div>
 {% endblock content %}

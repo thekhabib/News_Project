@@ -1,8 +1,9 @@
 {% extends 'news/base.html' %}
 {% load static %}
 {% load hitcount_tags %}
+{% load i18n %}
 
-{% block title %} Biz bilan aloqa {% endblock title %}
+{% block title %}{% blocktrans %} Biz bilan aloqa {% endblocktrans %}{% endblock title %}
 {% block content %}
     
   <section id="contentSection">
@@ -10,13 +11,13 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="contact_area">
-            <h2>Biz bilan aloqa</h2>
-            <p>Sayt faoliyati yuzasidan taklif yoki tanqidlaringiz bormi? «Xabar.uz»ga maqola yoki xabar yubormoqchimisiz? Yoki o'zingiz guvoh bo'lgan qandaydir hodisa haqida ma'lum qilmoqchimisiz? Hamkorlikka tayyormiz, biz bilan o'zingizga qulay shaklda bog'laning. </p>
+            <h2>{% blocktrans %} Biz bilan aloqa {% endblocktrans %}</h2>
+            <p>{% blocktrans %} Sayt faoliyati yuzasidan taklif yoki tanqidlaringiz bormi? «Xabar.uz»ga maqola yoki xabar yubormoqchimisiz? Yoki o'zingiz guvoh bo'lgan qandaydir hodisa haqida ma'lum qilmoqchimisiz? Hamkorlikka tayyormiz, biz bilan o'zingizga qulay shaklda bog'laning. {% endblocktrans %}</p>
             <form action="#" class="contact_form" method="post">{% csrf_token %}
-              <input class="form-control" type="text" placeholder="FIO*" name="name">
-              <input class="form-control" type="email" placeholder="Email*" name="email">
-              <textarea class="form-control" cols="30" rows="10" placeholder="Xabar*" name="message"></textarea>
-              <input style="border-radius: 5px" type="submit" value="Xabarni jo'natish">
+              <input class="form-control" type="text" placeholder="{% blocktrans %} FIO* {% endblocktrans %}" name="name">
+              <input class="form-control" type="email" placeholder="{% blocktrans %} Email* {% endblocktrans %}" name="email">
+              <textarea class="form-control" cols="30" rows="10" placeholder="{% blocktrans %} Xabar* {% endblocktrans %}" name="message"></textarea>
+              <input style="border-radius: 5px" type="submit" value="{% blocktrans %} Xabarni jo'natish {% endblocktrans %}">
             </form>
           </div>
         </div>
@@ -24,7 +25,7 @@
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>Ommabop</span></h2>
+            <h2><span>{% blocktrans %} Ommabop {% endblocktrans %}</span></h2>
             <ul class="spost_nav">
               {% for news in latest_news %}  
               <li>

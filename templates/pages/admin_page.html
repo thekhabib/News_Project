@@ -1,18 +1,19 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %} Admin sahifasi {% endblock %}
+{% block title %}{% blocktrans %} Admin sahifasi {% endblocktrans %}{% endblock %}
 {% block content %}
     <div class="admin-container">
-        <h2>Admin sahifasi</h2>
-        <h5>Barcha adminlar ro'yxati</h5>
+        <h2>{% blocktrans %} Admin sahifasi {% endblocktrans %}</h2>
+        <h5>{% blocktrans %} Barcha adminlar ro'yxati {% endblocktrans %}</h5>
         <table class="admin-table">
             <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Ismi</th>
-                    <th>Familiyasi</th>
-                    <th>Email</th>
+                    <th>{% blocktrans %} Foydalanuvchi nomi {% endblocktrans %}</th>
+                    <th>{% blocktrans %} Ismi {% endblocktrans %}</th>
+                    <th>{% blocktrans %} Familiyasi {% endblocktrans %}</th>
+                    <th>{% blocktrans %} Elektron pochta {% endblocktrans %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +26,7 @@
                     </tr>
                 {% empty %}
                     <tr>
-                        <td colspan="5">Hech qanday admin topilmadi.</td>
+                        <td colspan="5">{% blocktrans %} Hech qanday admin topilmadi. {% endblocktrans %}</td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -62,17 +63,6 @@
 
         .admin-table th {
             background-color: #f2f2f2;
-        }
-
-        .admin-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .admin-icon {
-            font-size: 50px;
-            color: #ddd;
         }
     </style>
 {% endblock content %}

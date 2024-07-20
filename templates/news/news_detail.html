@@ -1,6 +1,7 @@
 {% extends 'news/base.html' %}
 {% load static %}
 {% load hitcount_tags %}
+{% load i18n %}
 
 {% block title %} {{ news.title }} {% endblock title %}
 {% block content %}
@@ -11,7 +12,7 @@
         <div class="left_content">
           <div class="single_page">
             <ol class="breadcrumb">
-              <li><a href="{% url 'home_page' %}">Bosh sahifa</a></li>
+              <li><a href="{% url 'home_page' %}">{% blocktrans %} Bosh sahifa {% endblocktrans %}</a></li>
               <li style="color: #f8f7f7">{{ news.category }}</li>
             </ol>
             <h1>{{ news.title }}</h1>
@@ -22,10 +23,11 @@
                 <span> <i class="fa fa-comments"></i> {{ comment_count }} </span>
             </div>
             <div class="single_page_content"> <img class="img-center" src="{{ news.image.url }}" alt="">
-              <p>{{ news.body }}</p>
+              <p>{{ news.body }}</p><br>
+              <p style="text-align: center"> <a href="{% url 'news_update' news.slug %}"> {% blocktrans %} Tahrirlash {% endblocktrans %} </a> | <a href="{% url 'news_delete' news.slug %}"> {% blocktrans %} O'chirish {% endblocktrans %} </a> </p>
             </div>
             <div>
-                <h3> <i class="fa fa-comments"></i> Izohlar </h3>
+                <h3> <i class="fa fa-comments"></i>{% blocktrans %} Izohlar {% endblocktrans %}</h3>
                 {% for comment in comments %}
                     <div class="comment">
                         <p>
@@ -36,14 +38,14 @@
                     </div>
                 {% endfor %}
                 {% if user.is_authenticated %}
-                  <button id="showCommentFormBtn" class="btn btn-secondary" onclick="toggleCommentForm()">Izoh qoldirish</button>
+                  <button id="showCommentFormBtn" class="btn btn-secondary" onclick="toggleCommentForm()">{% blocktrans %} Izoh qoldirish {% endblocktrans %}</button>
                   <form id="commentForm" method="post" class="comment-form" style="display: none;">
                     {% csrf_token %}
                     {{ comment_form.as_p }}
-                    <button type="submit" class="btn btn-primary">Yuborish</button>
+                    <button type="submit" class="btn btn-primary">{% blocktrans %} Yuborish {% endblocktrans %}</button>
                   </form>
                 {% else %}
-                  <button id="showCommentFormBtn" class="btn btn-secondary" onclick="window.location.href='{% url 'login' %}'">Izoh qoldirish</button>
+                  <button id="showCommentFormBtn" class="btn btn-secondary" onclick="window.location.href='{% url 'login' %}'">{% blocktrans %} Izoh qoldirish {% endblocktrans %}</button>
                 {% endif %}
             </div>  
             <div class="social_link">
@@ -56,7 +58,7 @@
               </ul>
             </div>
             <div class="related_post">
-              <h2>O'xshash yangiliklar <i class="fa fa-thumbs-o-up"></i></h2>
+              <h2>{% blocktrans %} O'xshash yangiliklar {% endblocktrans %}<i class="fa fa-thumbs-o-up"></i></h2>
               <ul class="spost_nav wow fadeInDown animated">
                   {% for yangilik in latest_news %}
                     {% if yangilik.category == news.category and yangilik.id != news.id %}
@@ -75,20 +77,10 @@
           </div>
         </div>
       </div>
-      <nav class="nav-slit"> <a class="prev" href="#"> <span class="icon-wrap"><i class="fa fa-angle-left"></i></span>
-        <div>
-          <h3>City Lights</h3>
-          <img src="{% static 'images/post_img1.jpg' %}" alt=""/> </div>
-        </a> <a class="next" href="#"> <span class="icon-wrap"><i class="fa fa-angle-right"></i></span>
-        <div>
-          <h3>Street Hills</h3>
-          <img src="{% static 'images/post_img2.jpg' %}" alt=""/> </div>
-        </a>
-      </nav>
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">
-            <h2><span>Ommabop</span></h2>
+            <h2><span>{% blocktrans %} Ommabop {% endblocktrans %}</span></h2>
             <ul class="spost_nav">
               {% for news in latest_news %}  
               <li>
@@ -104,9 +96,9 @@
           </div>
           <div class="single_sidebar">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Kategoriya</a></li>
-              <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a></li>
-              <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Izohlar</a></li>
+              <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">{% blocktrans %} Kategoriya {% endblocktrans %}</a></li>
+              <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">{% blocktrans %} Video {% endblocktrans %}</a></li>
+              <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">{% blocktrans %} Izohlar {% endblocktrans %}</a></li>
             </ul>
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="category">
@@ -133,7 +125,7 @@
             </div>
           </div>
           <div class="single_sidebar wow fadeInDown">
-            <h2><span>Sponsor</span></h2>
+            <h2><span>{% blocktrans %} Sponsor {% endblocktrans %}</span></h2>
             <a class="sideAdd" href="#"><img src="{% static 'images/add_img.jpg' %}" alt=""></a>
           </div>
         </aside>

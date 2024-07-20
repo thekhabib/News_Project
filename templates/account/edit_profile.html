@@ -1,6 +1,8 @@
 {% extends 'news/base.html' %}
 {% load static %}
-{% block title %} Foydalanuvchi ma'lumotlarini o'zgartirish {% endblock %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %} Foydalanuvchi ma'lumotlarini o'zgartirish {% endblocktrans %}{% endblock %}
 
 {% block content %}
     <div class="container mt-4">
@@ -9,8 +11,8 @@
                 {% include 'pages/profile_sidebar.html' %}
             </div>
             <div class="col-md-9">
-                <h3 class="mb-4">Foydalanuvchi ma'lumotlarini o'zgartirish</h3>
-                <p>Shaxsiy ma'lumotlaringizni quyidagi forma orqali o'zgartirishingiz mumkin.</p>
+                <h3 class="mb-4">{% blocktrans %} Foydalanuvchi ma'lumotlarini o'zgartirish {% endblocktrans %}</h3>
+                <p>{% blocktrans %} Shaxsiy ma'lumotlaringizni quyidagi forma orqali o'zgartirishingiz mumkin. {% endblocktrans %}</p>
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group">
@@ -19,7 +21,7 @@
                     <div class="form-group">
                         {{ profile_form.as_p }}
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3"> O'zgarishlarni saqlash </button>
+                    <button type="submit" class="btn btn-primary mt-3">{% blocktrans %} O'zgarishlarni saqlash {% endblocktrans %}</button>
                 </form>
             </div>
         </div>

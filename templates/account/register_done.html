@@ -1,10 +1,12 @@
 {% extends 'news/base.html' %}
 {% load static %}
-{% block title %} Muvaffaqiyatli ro'yxatdan o'tildi {% endblock %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %} Muvaffaqiyatli ro'yxatdan o'tildi {% endblocktrans %}{% endblock %}
 
 {% block content %}
     <div class="text-center">
-        <h3>{{ new_user.first_name }}, tabriklaymiz muvaffaqiyatli ro'yxatdan o'tdingiz.</h3>
+        <h3>{{ new_user.first_name }}, {% blocktrans %} tabriklaymiz muvaffaqiyatli ro'yxatdan o'tdingiz. {% endblocktrans %}</h3>
         <p>Saytga <a href="{% url 'login' %}" style="color: #0a8ec4">kirishingiz</a> mumkin.</p>
     </div>
 {% endblock content %}

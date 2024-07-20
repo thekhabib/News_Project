@@ -1,7 +1,8 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}{{ user.username }} profili{% endblock %}
+{% block title %}{{ user.username }}{% endblock %}
 
 {% block content %}
     <div class="container-fluid">
@@ -11,7 +12,7 @@
         </div>
         <div class="panel-body inf-content col-md-9">
             <div class="row">
-                <h2 style="margin-left: 300px">{{ user.username }}, xush kelibsiz</h2><br>
+                <h2 style="margin-left: 300px">{{ user.username }}, {% blocktrans %} xush kelibsiz! {% endblocktrans %}</h2><br>
                 <div class="col-md-4">
                     {% if profile.photo %}
                         <img alt="" style="width:80%" class="circular--portrait img-thumbnail" src="{{ profile.photo.url }}">
@@ -20,28 +21,27 @@
                     {% endif %}
                 </div>
                 <div class="col-md-6">
-{#                    <h5>Shaxsiy ma'lumotlar</h5>#}
                     <div class="table-responsive">
                         <table class="table table-user-information">
                             <tbody>
                                 <tr>
-                                    <td> <span class="glyphicon glyphicon-user  text-primary"></span> Ismi </td>
+                                    <td> <span class="glyphicon glyphicon-user  text-primary"></span>{% blocktrans %} Ismi {% endblocktrans %}</td>
                                     <td class="text-primary"> <strong>{{ user.first_name }}</strong> </td>
                                 </tr>
                                 <tr>
-                                    <td> <span class="glyphicon glyphicon-cloud  text-primary"></span> Familiyasi </td>
+                                    <td> <span class="glyphicon glyphicon-cloud  text-primary"></span>{% blocktrans %} Familiyasi {% endblocktrans %}</td>
                                     <td class="text-primary"> <strong>{{ user.last_name }}</strong> </td>
                                 </tr>
                                 <tr>
-                                    <td> <span class="glyphicon glyphicon-bookmark  text-primary"></span> Usename </td>
+                                    <td> <span class="glyphicon glyphicon-bookmark  text-primary"></span>{% blocktrans %} Foydalanuvchi nomi {% endblocktrans %}</td>
                                     <td class="text-primary"> <strong>{{ user.username }}</strong> </td>
                                 </tr>
                                 <tr>
-                                    <td> <span class="glyphicon glyphicon-envelope  text-primary"></span> Elektron pochta </td>
+                                    <td> <span class="glyphicon glyphicon-envelope  text-primary"></span>{% blocktrans %} Elektron pochta {% endblocktrans %}</td>
                                     <td class="text-primary"> <strong>{{ user.email }}</strong> </td>
                                 </tr>
                                 <tr>
-                                    <td> <span class="glyphicon glyphicon-calendar text-primary"></span> Ro'yxatdan o'tgan </td>
+                                    <td> <span class="glyphicon glyphicon-calendar text-primary"></span>{% blocktrans %} Ro'yxatdan o'tgan {% endblocktrans %}</td>
                                     <td class="text-primary"> <strong>{{ user.date_joined | date:"d M Y"}}</strong> </td>
                                 </tr>
                             </tbody>

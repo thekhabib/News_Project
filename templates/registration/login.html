@@ -1,20 +1,21 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %} Login sahifasi {% endblock %}
+{% block title %}{% blocktrans %} Login sahifasi {% endblocktrans %}{% endblock %}
 {% block content %}
     <div class="login-container">
-        <h3>Veb-saytga kirish - Login</h3>
-        <p>Iltimos, saytga kirish uchun quyidagi formani to'ldiring!</p>
+        <h3>{% blocktrans %} Veb-saytga kirish - Login {% endblocktrans %}</h3>
+        <p>{% blocktrans %} Iltimos, saytga kirish uchun quyidagi formani to'ldiring! {% endblocktrans %}</p>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <p> <a href="{% url 'password_reset' %}" class="link">Parolingizni unutdingizmi?</a> </p>
+            <p> <a href="{% url 'password_reset' %}" class="link">{% blocktrans %} Parolingizni unutdingizmi? {% endblocktrans %}</a> </p>
             <div class="button-container">
-                <button type="submit" class="btn btn-primary">Saytga kirish</button>
+                <button type="submit" class="btn btn-primary">{% blocktrans %}Saytga kirish {% endblocktrans %}</button>
             </div>
         </form>
-        <p>Yangi foydalanuvchimisiz? <a href="{% url 'user_register' %}" class="link">Ro'yxatdan o'ting</a></p>
+        <p>{% blocktrans %} Yangi foydalanuvchimisiz? {% endblocktrans %} <a href="{% url 'user_register' %}" class="link"> {% blocktrans %} Ro'yxatdan o'ting {% endblocktrans %}</a></p>
     </div>
     <style>
         .login-container {

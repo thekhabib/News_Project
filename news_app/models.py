@@ -31,8 +31,7 @@ class News(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='news/images')
     category = models.ForeignKey(Category,
-                                 on_delete=models.CASCADE
-                                 )
+                                 on_delete=models.CASCADE)
     published_time = models.DateTimeField(default=timezone.now)
     created_time = models.DateTimeField(auto_now_add=True)
     updated_time = models.DateTimeField(auto_now=True)

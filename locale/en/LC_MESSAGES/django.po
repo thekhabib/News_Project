@@ -1,0 +1,460 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-20 05:45+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config/settings.py:119
+msgid "Uzbek"
+msgstr ""
+
+#: config/settings.py:120
+msgid "English"
+msgstr ""
+
+#: config/settings.py:121
+msgid "Russian"
+msgstr ""
+
+#: templates/account/edit_profile.html:5 templates/account/edit_profile.html:14
+msgid " Foydalanuvchi ma'lumotlarini o'zgartirish "
+msgstr "Change personal information"
+
+#: templates/account/edit_profile.html:15
+msgid ""
+" Shaxsiy ma'lumotlaringizni quyidagi forma orqali o'zgartirishingiz mumkin. "
+msgstr "You can change your personal information using the form below."
+
+#: templates/account/edit_profile.html:24
+msgid " O'zgarishlarni saqlash "
+msgstr "Save changes"
+
+#: templates/account/register.html:5
+msgid " Foydalanuvchilarni ro'yxatdan o'tkazish "
+msgstr "User Registration"
+
+#: templates/account/register.html:8 templates/account/register.html:14
+msgid " Ro'yxatdan o'tish "
+msgstr "Sign up"
+
+#: templates/account/register.html:9
+msgid " Ro'yxatdan o'tish uchun quyidagi formani to'ldiring. "
+msgstr "Fill out the form below to register."
+
+#: templates/account/register_done.html:5
+msgid " Muvaffaqiyatli ro'yxatdan o'tildi "
+msgstr "Successfully registered"
+
+#: templates/account/register_done.html:9
+msgid " tabriklaymiz muvaffaqiyatli ro'yxatdan o'tdingiz. "
+msgstr "congratulations, you have successfully registered."
+
+#: templates/crud/news_create.html:5 templates/crud/news_create.html:14
+#: templates/pages/profile_sidebar.html:59
+msgid " Yangilik yaratish "
+msgstr "Create news"
+
+#: templates/crud/news_create.html:18 templates/crud/news_edit.html:13
+msgid " Saqlash "
+msgstr "Save"
+
+#: templates/crud/news_delete.html:6
+msgid " Yangilikni o'chirish "
+msgstr "Delete news"
+
+#: templates/crud/news_delete.html:10
+msgid " Joriy yangilikni o'chirish "
+msgstr "Delete current news"
+
+#: templates/crud/news_delete.html:12
+msgid " sarlavhali yangilikni o'chirishni istaysizmi? "
+msgstr "Do you want to delete the headline?"
+
+#: templates/crud/news_delete.html:13
+msgid " Tasdiqlayman "
+msgstr "Approve"
+
+#: templates/crud/news_edit.html:6
+msgid " Yangilikni tahrirlash "
+msgstr "Edit news"
+
+#: templates/crud/news_edit.html:10
+msgid " Joriy yangilikni tahrirlash "
+msgstr "Edit current News"
+
+#: templates/news/base.html:34 templates/news/base.html:86
+#: templates/news/home.html:6 templates/news/news_detail.html:15
+msgid " Bosh sahifa "
+msgstr "Home"
+
+#: templates/news/base.html:35
+msgid " Biz haqimizda "
+msgstr "About"
+
+#: templates/news/base.html:36 templates/news/base.html:102
+#: templates/news/base.html:163 templates/news/contact.html:6
+#: templates/news/contact.html:14
+msgid " Biz bilan aloqa "
+msgstr "Contact us"
+
+#: templates/news/base.html:38
+msgid " Adminlar sahifasi "
+msgstr "Admin page"
+
+#: templates/news/base.html:62 templates/pages/profile_sidebar.html:70
+msgid " Chiqish "
+msgstr "Logout"
+
+#: templates/news/base.html:65
+#: templates/registration/password_reset_complete.html:9
+msgid " Kirish "
+msgstr "Login"
+
+#: templates/news/base.html:90 templates/news/base.html:154
+#: templates/news/home.html:51
+msgid " Mahalliy "
+msgstr "Local"
+
+#: templates/news/base.html:93 templates/news/base.html:155
+#: templates/news/home.html:87
+msgid " Xorij "
+msgstr "World"
+
+#: templates/news/base.html:96 templates/news/base.html:156
+#: templates/news/home.html:119
+msgid " Texnologiya "
+msgstr "Technology"
+
+#: templates/news/base.html:99 templates/news/base.html:157
+#: templates/news/home.html:186
+msgid " Sport "
+msgstr "Sport"
+
+#: templates/news/base.html:108
+msgid " Qidiruv "
+msgstr "Search"
+
+#: templates/news/base.html:119 templates/news/home.html:25
+msgid " So'nggi yangiliklar "
+msgstr "Latest news"
+
+#: templates/news/base.html:152
+msgid " Teglar "
+msgstr "Tegs"
+
+#: templates/news/base.html:164
+msgid ""
+" Reklama yoki hamkorlik takliflarini esa quyidagi elektron pochtaga "
+"yuboring: reklama@xabar.uz  yoki (+99891) 166-86-30 ga qo‘ng‘iroq qiling. "
+msgstr ""
+"Send advertising or cooperation offers to the following e-mail: "
+"reklama@xabar.uz or call (+99891) 166-86-30."
+
+#: templates/news/base.html:166
+msgid ""
+" Tahririyat manzili: 100000, Toshkent shahri, Amir Temur 1-tor ko‘chasi, 2-"
+"uy (mo‘ljal: Oloy bozori) "
+msgstr ""
+"Office address: 100000, Tashkent city, Amir Temur 1st street, 2 house "
+"(destination: Oloy market)"
+
+#: templates/news/contact.html:15
+msgid ""
+" Sayt faoliyati yuzasidan taklif yoki tanqidlaringiz bormi? «Xabar.uz»ga "
+"maqola yoki xabar yubormoqchimisiz? Yoki o'zingiz guvoh bo'lgan qandaydir "
+"hodisa haqida ma'lum qilmoqchimisiz? Hamkorlikka tayyormiz, biz bilan "
+"o'zingizga qulay shaklda bog'laning. "
+msgstr ""
+"Do you have any suggestions or criticisms regarding the site? Do you want to "
+"send an article or message to «xabar.uz»? Or would you like to report an "
+"incident that you witnessed? We are ready for cooperation, contact us in a "
+"convenient way."
+
+#: templates/news/contact.html:17
+msgid " FIO* "
+msgstr "Name*"
+
+#: templates/news/contact.html:18
+msgid " Email* "
+msgstr "Email*"
+
+#: templates/news/contact.html:19
+msgid " Xabar* "
+msgstr "Message*"
+
+#: templates/news/contact.html:20
+msgid " Xabarni jo'natish "
+msgstr "Send Message"
+
+#: templates/news/contact.html:28 templates/news/news_detail.html:83
+msgid " Ommabop "
+msgstr "Popular news"
+
+#: templates/news/home.html:151
+msgid " Rasmlar "
+msgstr "Photography"
+
+#: templates/news/home.html:224
+msgid " Ommmabop "
+msgstr "Popular news"
+
+#: templates/news/home.html:250 templates/news/news_detail.html:99
+msgid " Kategoriya "
+msgstr "Category"
+
+#: templates/news/home.html:251 templates/news/news_detail.html:100
+msgid " Video "
+msgstr "Video"
+
+#: templates/news/home.html:252 templates/news/news_detail.html:30
+#: templates/news/news_detail.html:101
+msgid " Izohlar "
+msgstr "Comments"
+
+#: templates/news/home.html:279 templates/news/news_detail.html:128
+msgid " Sponsor "
+msgstr "Sponsor"
+
+#: templates/news/home.html:282
+msgid " Barcha kategoriyalar "
+msgstr "All categories"
+
+#: templates/news/home.html:285
+msgid " Kategoriyani tanlang "
+msgstr "Select category"
+
+#: templates/news/home.html:293
+msgid " Linklar "
+msgstr "Links"
+
+#: templates/news/mahalliy.html:7
+msgid " Mahalliy Yangiliklar "
+msgstr "Local News"
+
+#: templates/news/news_detail.html:27
+msgid " Tahrirlash "
+msgstr "Edit"
+
+#: templates/news/news_detail.html:27
+msgid " O'chirish "
+msgstr "Delete"
+
+#: templates/news/news_detail.html:41 templates/news/news_detail.html:48
+msgid " Izoh qoldirish "
+msgstr "Write a comment"
+
+#: templates/news/news_detail.html:45
+msgid " Yuborish "
+msgstr "Send"
+
+#: templates/news/news_detail.html:61
+#, fuzzy
+#| msgid " So'nggi yangiliklar "
+msgid " O'xshash yangiliklar "
+msgstr "Related News"
+
+#: templates/news/search_result.html:6 templates/news/search_result.html:10
+msgid " Qidiruv natijalari "
+msgstr "Search results"
+
+#: templates/news/search_result.html:33
+msgid " Hech qanday natija topilmadi. "
+msgstr "No results found."
+
+#: templates/news/sport.html:7
+msgid " Sport Yangiliklari "
+msgstr "Sports News"
+
+#: templates/news/texnologiya.html:7
+msgid " Texnologik Yangiliklar "
+msgstr "Technological News"
+
+#: templates/news/xorij.html:7
+msgid " Xorij Yangiliklari "
+msgstr "World News"
+
+#: templates/pages/admin_page.html:5 templates/pages/admin_page.html:8
+msgid " Admin sahifasi "
+msgstr "Admin page"
+
+#: templates/pages/admin_page.html:9
+msgid " Barcha adminlar ro'yxati "
+msgstr "List of all admins"
+
+#: templates/pages/admin_page.html:13 templates/pages/user_profile.html:36
+msgid " Foydalanuvchi nomi "
+msgstr "Username"
+
+#: templates/pages/admin_page.html:14 templates/pages/user_profile.html:28
+msgid " Ismi "
+msgstr "First name"
+
+#: templates/pages/admin_page.html:15 templates/pages/user_profile.html:32
+msgid " Familiyasi "
+msgstr "Last name"
+
+#: templates/pages/admin_page.html:16 templates/pages/user_profile.html:40
+msgid " Elektron pochta "
+msgstr "Email"
+
+#: templates/pages/admin_page.html:29
+msgid " Hech qanday admin topilmadi. "
+msgstr "No admin found."
+
+#: templates/pages/profile_sidebar.html:53
+msgid " Shaxsiy ma'lumotlarni o'zgartirish "
+msgstr "Change personal information"
+
+#: templates/pages/profile_sidebar.html:65
+#: templates/registration/password_change_done.html:5
+#: templates/registration/password_change_form.html:5
+#: templates/registration/password_change_form.html:14
+msgid " Parolni o'zgartirish "
+msgstr "Change password"
+
+#: templates/pages/user_profile.html:15
+msgid " xush kelibsiz! "
+msgstr "welcome!"
+
+#: templates/pages/user_profile.html:44
+msgid " Ro'yxatdan o'tgan "
+msgstr "Joined date"
+
+#: templates/registration/logged_out.html:5
+msgid " Logout sahifasi "
+msgstr "Logout"
+
+#: templates/registration/logged_out.html:9
+msgid " Siz vebsaytdan chiqdingiz "
+msgstr "You have left the website"
+
+#: templates/registration/logged_out.html:11
+msgid " Saytga kirish "
+msgstr "Login"
+
+#: templates/registration/login.html:5
+msgid " Login sahifasi "
+msgstr "Login"
+
+#: templates/registration/login.html:8
+msgid " Veb-saytga kirish - Login "
+msgstr "Access to the website - Login"
+
+#: templates/registration/login.html:9
+msgid " Iltimos, saytga kirish uchun quyidagi formani to'ldiring! "
+msgstr "Please fill out the form below to access the site!"
+
+#: templates/registration/login.html:13
+msgid " Parolingizni unutdingizmi? "
+msgstr "Forgot your password?"
+
+#: templates/registration/login.html:15
+msgid "Saytga kirish "
+msgstr "Login"
+
+#: templates/registration/login.html:18
+msgid " Yangi foydalanuvchimisiz? "
+msgstr "Are you a new user?"
+
+#: templates/registration/login.html:18
+msgid " Ro'yxatdan o'ting "
+msgstr "Create account"
+
+#: templates/registration/password_change_done.html:7
+msgid " sizning parolingiz muvaffaqiyatli o'zgartirildi. "
+msgstr "Your password has been successfully changed."
+
+#: templates/registration/password_change_form.html:18
+msgid " O'zgartirish "
+msgstr "Change"
+
+#: templates/registration/password_reset_complete.html:5
+msgid " Parol muvaffaqiyatli o'zgartirildi "
+msgstr "Password changed successfully"
+
+#: templates/registration/password_reset_complete.html:8
+msgid " Parolingiz muvaffaqiyatli o'zgartirildi! "
+msgstr "Your password has been successfully changed!"
+
+#: templates/registration/password_reset_confirm.html:5
+#: templates/registration/password_reset_confirm.html:9
+#: templates/registration/password_reset_done.html:5
+#: templates/registration/password_reset_form.html:5
+#: templates/registration/password_reset_form.html:12
+#: templates/registration/password_reset_form.html:19
+msgid " Parolni tiklash "
+msgstr "Reset password"
+
+#: templates/registration/password_reset_confirm.html:14
+msgid " Parolni almashtirish "
+msgstr "Change password"
+
+#: templates/registration/password_reset_confirm.html:18
+msgid " Parolni tiklash amalga oshmadi! "
+msgstr "Password reset failed!"
+
+#: templates/registration/password_reset_confirm.html:20
+msgid " Parolni tiklash havolasi allaqachon ishlatilgan yoki yaroqsiz. "
+msgstr "The password reset link has already been used or is invalid."
+
+#: templates/registration/password_reset_confirm.html:21
+msgid " Parolni tiklash uchun qayta urinib ko'ring "
+msgstr "Please try again to reset your password"
+
+#: templates/registration/password_reset_done.html:7
+msgid " Parolni tiklash uchu havola yuborildi "
+msgstr "A link has been sent to reset your password"
+
+#: templates/registration/password_reset_done.html:8
+msgid " Parolingizni tiklash uchun havola elektron pochta orqali yuborildi! "
+msgstr "A link to reset your password has been emailed to you!"
+
+#: templates/registration/password_reset_email.html:3
+msgid " Assalomu alaykum! "
+msgstr "Hello!"
+
+#: templates/registration/password_reset_email.html:4
+msgid ""
+" Siz xabar.uz sahifasida foydalanuvchi hisobingiz uchun parolni "
+"oʻzgartirishni soʻraganingiz uchun sizga ushbu xat yuborilmoqda. "
+msgstr "This email is being sent to you because you requested to change the password for your user account on xabar.uz"
+
+#: templates/registration/password_reset_email.html:5
+msgid " Iltimos, quyidagi sahifaga o'ting va yangi parolni o'rnating: "
+msgstr "Please go to the page below and set a new password:"
+
+#: templates/registration/password_reset_email.html:9
+msgid ""
+" Agar siz parolni tiklashni so'ramagan bo'lsangiz, bu xatni e'tiborsiz "
+"qoldirishingiz mumkin. "
+msgstr "If you have not requested a password reset, you can ignore this email."
+
+#: templates/registration/password_reset_email.html:11
+msgid " Sizning foydalanuvchi nomingiz: "
+msgstr "Your username:"
+
+#: templates/registration/password_reset_email.html:13
+msgid " Saytimizdan foydalanganingiz uchun tashakkur! "
+msgstr "Thank you for using our site!"
+
+#: templates/registration/password_reset_email.html:15
+msgid " xabar.uz jamoasi. "
+msgstr "xabar.uz team."
+
+#: templates/registration/password_reset_form.html:15
+msgid " Parolingizni tiklash uchun emailingizni kiriting. "
+msgstr "Enter your email to reset your password."

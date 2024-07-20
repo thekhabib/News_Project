@@ -1,15 +1,16 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}
-Yangilikni o'chirish
+{% blocktrans %} Yangilikni o'chirish {% endblocktrans %}
 {% endblock %}
 {% block content %}
     
-    <h2 class="text-center">Joriy yangilikni o'chirish</h2>
+    <h2 class="text-center">{% blocktrans %} Joriy yangilikni o'chirish {% endblocktrans %}</h2>
     <form method="post">{% csrf_token %}
-        <p>{{ news.title | truncatewords:5 }}... sarlavhali yangilikni o'chirishni istaysizmi?</p>
-        <button type="submit" class="btn btn-danger ml-2">Tasdiqlayman</button>
+        <p>{{ news.title | truncatewords:5 }}... {% blocktrans %} sarlavhali yangilikni o'chirishni istaysizmi? {% endblocktrans %}</p>
+        <button type="submit" class="btn btn-danger ml-2">{% blocktrans %} Tasdiqlayman {% endblocktrans %}</button>
     </form>
     
 {% endblock content %}

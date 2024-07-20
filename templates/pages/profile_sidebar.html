@@ -1,3 +1,6 @@
+{% load static %}
+{% load i18n %}
+
 <style>
     .profile-usermenu {
       border: 1px solid #DDDDDD;
@@ -47,24 +50,24 @@
       <li class="{% if request.resolver_match.url_name == 'edit_user_information' %}active{% endif %}">
         <a href="{% url 'edit_user_information' %}">
           <i class="glyphicon glyphicon-edit"></i>
-          Shaxsiy ma'lumotlarni o'zgartirish </a>
+          {% blocktrans %} Shaxsiy ma'lumotlarni o'zgartirish {% endblocktrans %}</a>
       </li>
       {% if user.is_superuser %}  
           <li class="{% if request.resolver_match.url_name == 'news_create' %}active{% endif %}">
             <a href="{% url 'news_create' %}">
               <i class="glyphicon glyphicon-plus"></i>
-              Yangilik yaratish </a>
+              {% blocktrans %} Yangilik yaratish {% endblocktrans %}</a>
           </li>
       {% endif %}
       <li class="{% if request.resolver_match.url_name == 'password_change' %}active{% endif %}">
         <a href="{% url 'password_change' %}">
           <i class="glyphicon glyphicon-lock"></i>
-          Parolni o'zgartirish </a>
+          {% blocktrans %} Parolni o'zgartirish {% endblocktrans %}</a>
       </li>
       <li>
           <a href="{% url 'logout' %}">
               <i class="glyphicon glyphicon-log-out"></i>
-              Chiqish </a>
+              {% blocktrans %} Chiqish {% endblocktrans %}</a>
       </li>      
     </ul>
 </div>
