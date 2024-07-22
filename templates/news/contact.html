@@ -27,7 +27,7 @@
           <div class="single_sidebar">
             <h2><span>{% blocktrans %} Ommabop {% endblocktrans %}</span></h2>
             <ul class="spost_nav">
-              {% for news in latest_news %}  
+              {% for news in latest_news %}
               <li>
                 <div class="media wow fadeInDown"> <a href="{{ news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
                   <div class="media-body">
@@ -36,7 +36,7 @@
                   </div>
                 </div>
               </li>
-              {% endfor %}  
+              {% endfor %}
             </ul>
           </div>
         </aside>

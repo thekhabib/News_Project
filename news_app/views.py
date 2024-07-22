@@ -117,6 +117,9 @@ class ContactPageView(TemplateView):
         }
         return render(request, self.template_name, context)
 
+def about_view(request):
+    return render(request, 'news/about.html')
+
 
 class LocalNewsView(ListView):
     model = News

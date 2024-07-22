@@ -1,0 +1,23 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+{% load i18n %}
+
+{% block title %}{% blocktrans %} Biz haqimizda {% endblocktrans %}{% endblock title %}
+{% block content %}
+    
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-8">
+        <div class="left_content">
+            <div class="contact_area">
+                <h2>{% blocktrans %} Biz haqimizda {% endblocktrans %}</h2>
+                <p>{% blocktrans %} «xabar.uz» - O‘zbekistondagi eng faol onlayn nashrlardan biri. Sayt o‘z oldiga O‘zbekiston va jahonda ro‘y berayotgan eng muhim voqea-hodisalar haqida tezkor, aniq va xolis axborot berishni maqsad qilib qo‘ygan. {% endblocktrans %}</p>
+                <p>{% blocktrans %} Google Analytics ma’lumotlariga ko‘ra, saytga har kuni 350 ming kishi tashrif buyuradi. {% endblocktrans %}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

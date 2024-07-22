@@ -32,7 +32,7 @@
           <div class="header_top_left">
             <ul class="top_nav">
               <li><a href="{% url 'home_page' %}">{% blocktrans %} Bosh sahifa {% endblocktrans %}</a></li>
-              <li><a href="#">{% blocktrans %} Biz haqimizda {% endblocktrans %}</a></li>
+              <li><a href="{% url 'about_page' %}">{% blocktrans %} Biz haqimizda {% endblocktrans %}</a></li>
               <li><a href="{% url 'contact_page' %}">{% blocktrans %} Biz bilan aloqa {% endblocktrans %}</a></li>
               {% if user.is_authenticated and user.is_superuser %}  
                 <li><a href="{% url 'admin_page' %}">{% blocktrans %} Adminlar sahifasi {% endblocktrans %}</a></li>
@@ -144,7 +144,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInLeftBig">
-            <h2>Flickr Images</h2>
+            <h2>{% blocktrans %} Flickr rasmlar {% endblocktrans %}</h2>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4">
@@ -161,16 +161,18 @@
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="footer_widget wow fadeInRightBig">
             <h2>{% blocktrans %} Biz bilan aloqa {% endblocktrans %}</h2>
-              <p>{% blocktrans %} Reklama yoki hamkorlik takliflarini esa quyidagi elektron pochtaga yuboring: reklama@xabar.uz  yoki (+99891) 166-86-30 ga qo‘ng‘iroq qiling. {% endblocktrans %}</p>
+            <p><i class="fa fa-envelope"></i>  <a href="mailto:reklama@xabar.uz" class="text-primary">reklama@xabar.uz</a></p>
+            <p><i class="fa fa-phone"></i>   <a href="tel:+998 (94) 519 14 77" class="text-primary">+998 (94) 519 14 77</a></p>
             <address>
-            {% blocktrans %} Tahririyat manzili: 100000, Toshkent shahri, Amir Temur 1-tor ko‘chasi, 2-uy (mo‘ljal: Oloy bozori) {% endblocktrans %}
+                <i class="glyphicon glyphicon-map-marker"></i>
+                {% blocktrans %} 100000, Toshkent shahri, Nukus ko'chasi, 121-uy {% endblocktrans %}
             </address>
           </div>
         </div>
       </div>
     </div>
     <div class="footer_bottom">
-      <p class="copyright">Copyright &copy; 2024 <a href="home.html">News Feed</a></p>
+      <p class="copyright">Copyright &copy; 2024 <a href="{% url 'home_page' %}">News Feed</a></p>
       <p class="developer">Developed By <a href="https://github.com/thekhabib">thehabib</a></p>
     </div>
   </footer>

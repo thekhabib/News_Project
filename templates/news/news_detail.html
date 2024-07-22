@@ -23,8 +23,17 @@
                 <span> <i class="fa fa-comments"></i> {{ comment_count }} </span>
             </div>
             <div class="single_page_content"> <img class="img-center" src="{{ news.image.url }}" alt="">
-              <p>{{ news.body }}</p><br>
-              <p style="text-align: center"> <a href="{% url 'news_update' news.slug %}"> {% blocktrans %} Tahrirlash {% endblocktrans %} </a> | <a href="{% url 'news_delete' news.slug %}"> {% blocktrans %} O'chirish {% endblocktrans %} </a> </p>
+                <p>{{ news.body }}</p><br>
+                {% if user.is_authenticated and user.is_superuser %}
+                    <div style="text-align: center; margin-top: 20px;">
+                      <a class="btn btn-primary btn-sm" href="{% url 'news_update' news.slug %}">
+                          <i class="fa fa-pencil"></i> {% blocktrans %} Tahrirlash {% endblocktrans %}
+                      </a>
+                      <a class="btn btn-danger btn-sm" href="{% url 'news_delete' news.slug %}">
+                          <i class="fa fa-trash"></i> {% blocktrans %} O'chirish {% endblocktrans %}
+                      </a>
+                    </div>
+                {% endif %}
             </div>
             <div>
                 <h3> <i class="fa fa-comments"></i>{% blocktrans %} Izohlar {% endblocktrans %}</h3>
@@ -47,7 +56,7 @@
                 {% else %}
                   <button id="showCommentFormBtn" class="btn btn-secondary" onclick="window.location.href='{% url 'login' %}'">{% blocktrans %} Izoh qoldirish {% endblocktrans %}</button>
                 {% endif %}
-            </div>  
+            </div>
             <div class="social_link">
               <ul class="sociallink_nav">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -70,7 +79,7 @@
                             </div>
                           </div>
                       </li>
-                    {% endif %}  
+                    {% endif %}
                   {% endfor %}
               </ul>
             </div>
@@ -82,7 +91,7 @@
           <div class="single_sidebar">
             <h2><span>{% blocktrans %} Ommabop {% endblocktrans %}</span></h2>
             <ul class="spost_nav">
-              {% for news in latest_news %}  
+              {% for news in latest_news %}
               <li>
                 <div class="media wow fadeInDown"> <a href="{{  news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
                   <div class="media-body">
@@ -91,7 +100,7 @@
                   </div>
                 </div>
               </li>
-              {% endfor %}  
+              {% endfor %}
             </ul>
           </div>
           <div class="single_sidebar">
@@ -121,7 +130,7 @@
                     </div>
                   </li>
                 </ul>
-              </div>    
+              </div>
             </div>
           </div>
           <div class="single_sidebar wow fadeInDown">
@@ -132,7 +141,7 @@
       </div>
     </div>
   </section>
-    
+
   <script>
       function toggleCommentForm() {
           let form = document.getElementById("commentForm");
@@ -143,5 +152,5 @@
           }
       }
   </script>
-    
+
 {% endblock content %}
