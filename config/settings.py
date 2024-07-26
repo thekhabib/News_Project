@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['my-website.uz', 'www.my-website.uz', '127.0.0.1']
 
 # Application definition
 
@@ -132,22 +132,14 @@ LOCALE_PATHS = BASE_DIR, 'locale'
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = '/home/mywebsit/my-website.uz/django/staticfiles'
-STATICFILES_DIRS = ('/home/mywebsit/my-website.uz/django/static', )
-
-#local
-# STATIC_ROOT = BASE_DIR / 'staticfiles' #debug = False
-# STATICFILES_DIRS = [BASE_DIR / 'static'] #debug = True
-
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # debug = False
+STATICFILES_DIRS = [BASE_DIR / 'static']  # debug = True
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 MEDIA_URL = 'media/'
-MEDIA_ROOT = 'home/mywebsit/my-website.uz/django/media'
-
-#local
-# MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -160,4 +152,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_URL = 'login'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

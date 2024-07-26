@@ -5,12 +5,37 @@
 {% block title %}{% blocktrans %} Foydalanuvchilarni ro'yxatdan o'tkazish {% endblocktrans %}{% endblock %}
 
 {% block content %}
-    <h3>{% blocktrans %} Ro'yxatdan o'tish {% endblocktrans %}</h3>
-    <p>{% blocktrans %} Ro'yxatdan o'tish uchun quyidagi formani to'ldiring. {% endblocktrans %}</p>
-    
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        <button type="submit">{% blocktrans %} Ro'yxatdan o'tish {% endblocktrans %}</button>
-    </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>{% blocktrans %} Ro'yxatdan o'tish {% endblocktrans %}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center">{% blocktrans %} Ro'yxatdan o'tish uchun quyidagi formani to'ldiring. {% endblocktrans %}</p>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for field in user_form %}
+                                <div class="row mb-3">
+                                    <div class="col-md-4 text-md-right">
+                                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label_tag }}</label>
+                                    </div>
+                                    <div class="col-md-8 col-lg-8">
+                                        {{ field }}
+                                        {% if field.errors %}
+                                            <div class="alert alert-danger">
+                                                {{ field.errors }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <button type="submit" class="btn btn-primary center-block">{% blocktrans %} Ro'yxatdan o'tish {% endblocktrans %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
